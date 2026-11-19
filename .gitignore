@@ -1,0 +1,21 @@
+# Archivos temporales y del sistema
+Thumbs.db
+.DS_Store
+*.log
+
+# Entornos, cachés y compilaciones
+__pycache__/
+*.pyc
+venv/
+.env
+node_modules/
+bin/
+obj/
+
+# Bases de datos físicas de SQL Server (subimos scripts .sql, no binarios)
+*.mdf
+*.ldf
+*.ndf
+*.bak
+
+.vs/
