@@ -117,3 +117,4 @@ SELECT @@SERVERNAME AS NombreServidor;
 
  drop database MAMUT
  DROP TABLE GENERA
+ INSERT INTO PERSONAL(Nombre, Apellido, Cargo, Usuario, Password)VALUES('kevin','blanco','tecnico de sistemas','admin','1234');

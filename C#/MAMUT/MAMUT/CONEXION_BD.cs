@@ -20,5 +20,15 @@ namespace SistemaLogin
             return new SqlConnection(cadena);
         }
     }
+    public static class contadores
+    {
+        public static bool sesion_abierta  { get; set; }
+        public static string usuario { get; set; }
+        public static string nombre  { get; set; }
+        public static string apellido { get; set; }
+        public static string cargo { get; set; }
+
+    }
+
 }
 

@@ -22,7 +22,10 @@ namespace MAMUT
                 using (SqlConnection conexion = ConexionBD.Conectar())
                 {
                     conexion.Open();
+                    if (contadores.sesion_abierta== false)
+                    {
                     MessageBox.Show("Conexión exitosa con la base de datos");
+                    }
                 }
             }
             catch (Exception ex)
@@ -53,26 +56,38 @@ namespace MAMUT
                 using (SqlConnection conexion = ConexionBD.Conectar())
                 {
                     conexion.Open();
-                    string sql = @"SELECT COUNT(*) FROM PERSONAL
-                           WHERE Usuario = @usuario
-                           AND Password = @clave";
+                    string sql = @"SELECT Nombre, Apellido, Cargo
+                                 FROM PERSONAL
+                                 WHERE Usuario = @usuario
+                                 AND Password = @clave";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexion))
                     {
-                        cmd.Parameters.Add("@usuario",
-                            System.Data.SqlDbType.VarChar, 30).Value = usuario;
-                        cmd.Parameters.Add("@clave",
-                            System.Data.SqlDbType.VarChar, 255).Value = clave;
+                        cmd.Parameters.Add("@usuario",System.Data.SqlDbType.VarChar, 30).Value = usuario;
+                        cmd.Parameters.Add("@clave",System.Data.SqlDbType.VarChar, 255).Value = clave;
+                        int cantidad = 0;
 
-                        int cantidad = Convert.ToInt32(cmd.ExecuteScalar());
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                cantidad = 1; // Se encontró el registro
+                                contadores.nombre = reader["Nombre"].ToString();
+                                contadores.apellido = reader["Apellido"].ToString();
+                                contadores.cargo = reader["Cargo"].ToString();
+                                contadores.usuario = usuario;
+                            }
+                        }
                         if (cantidad > 0)
                         {
+                            contadores.sesion_abierta = true;
                             textCLAVE.Clear();
                             textUSUARIO.Focus();
                             this.Hide();
                             MAIN_MENU menu = new MAIN_MENU();
                             menu.ShowDialog();
                             this.Close();
+                            
                         }
                         else
                         {

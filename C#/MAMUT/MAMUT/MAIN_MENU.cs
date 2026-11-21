@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaLogin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace MAMUT
         public MAIN_MENU()
         {
             InitializeComponent();
+            usuario.Text = contadores.usuario;
+            nombre.Text = contadores.nombre;
+            apellido.Text = contadores.apellido;
+            cargo.Text = contadores.cargo;
         }
 
         private void cERRARSESIONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,5 +58,11 @@ namespace MAMUT
             USUARIOS usuarios = new USUARIOS();
             usuarios.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

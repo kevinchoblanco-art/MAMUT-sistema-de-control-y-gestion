@@ -38,7 +38,7 @@
             this.SALIR = new System.Windows.Forms.Button();
             this.checkCLAVE = new System.Windows.Forms.CheckBox();
             this.LIMPIAR = new System.Windows.Forms.Button();
-            this.MOST_OCULT = new System.Windows.Forms.TextBox();
+            this.MOST_OCULT = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -133,13 +133,11 @@
             // 
             // MOST_OCULT
             // 
-            this.MOST_OCULT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MOST_OCULT.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.MOST_OCULT.ForeColor = System.Drawing.Color.Black;
-            this.MOST_OCULT.Location = new System.Drawing.Point(464, 203);
+            this.MOST_OCULT.AutoSize = true;
+            this.MOST_OCULT.Location = new System.Drawing.Point(464, 202);
             this.MOST_OCULT.Name = "MOST_OCULT";
-            this.MOST_OCULT.Size = new System.Drawing.Size(148, 13);
-            this.MOST_OCULT.TabIndex = 10;
+            this.MOST_OCULT.Size = new System.Drawing.Size(138, 13);
+            this.MOST_OCULT.TabIndex = 11;
             this.MOST_OCULT.Text = "MOSTRAR CONTRASEÑA";
             // 
             // LOGIN
@@ -177,7 +175,7 @@
         private System.Windows.Forms.Button SALIR;
         private System.Windows.Forms.CheckBox checkCLAVE;
         private System.Windows.Forms.Button LIMPIAR;
-        private System.Windows.Forms.TextBox MOST_OCULT;
+        private System.Windows.Forms.Label MOST_OCULT;
     }
 }
 
