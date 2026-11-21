@@ -30,14 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textUSUARIO = new System.Windows.Forms.TextBox();
+            this.textCLAVE = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.INGRESAR = new System.Windows.Forms.Button();
             this.SALIR = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkCLAVE = new System.Windows.Forms.CheckBox();
             this.LIMPIAR = new System.Windows.Forms.Button();
+            this.MOST_OCULT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -59,19 +60,19 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "MAMUT";
             // 
-            // textBox1
+            // textUSUARIO
             // 
-            this.textBox1.Location = new System.Drawing.Point(154, 156);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 20);
-            this.textBox1.TabIndex = 2;
+            this.textUSUARIO.Location = new System.Drawing.Point(154, 156);
+            this.textUSUARIO.Name = "textUSUARIO";
+            this.textUSUARIO.Size = new System.Drawing.Size(266, 20);
+            this.textUSUARIO.TabIndex = 2;
             // 
-            // textBox2
+            // textCLAVE
             // 
-            this.textBox2.Location = new System.Drawing.Point(154, 199);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(266, 20);
-            this.textBox2.TabIndex = 3;
+            this.textCLAVE.Location = new System.Drawing.Point(154, 199);
+            this.textCLAVE.Name = "textCLAVE";
+            this.textCLAVE.Size = new System.Drawing.Size(266, 20);
+            this.textCLAVE.TabIndex = 3;
             // 
             // label3
             // 
@@ -111,15 +112,15 @@
             this.SALIR.UseVisualStyleBackColor = true;
             this.SALIR.Click += new System.EventHandler(this.SALIR_Click);
             // 
-            // checkBox1
+            // checkCLAVE
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(443, 202);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(157, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "MOSTRAR CONTRASEÑA";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkCLAVE.AutoSize = true;
+            this.checkCLAVE.Location = new System.Drawing.Point(443, 202);
+            this.checkCLAVE.Name = "checkCLAVE";
+            this.checkCLAVE.Size = new System.Drawing.Size(15, 14);
+            this.checkCLAVE.TabIndex = 8;
+            this.checkCLAVE.UseVisualStyleBackColor = true;
+            this.checkCLAVE.CheckedChanged += new System.EventHandler(this.checkCLAVE_CheckedChanged_1);
             // 
             // LIMPIAR
             // 
@@ -130,19 +131,31 @@
             this.LIMPIAR.Text = "LIMPIAR";
             this.LIMPIAR.UseVisualStyleBackColor = true;
             // 
+            // MOST_OCULT
+            // 
+            this.MOST_OCULT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MOST_OCULT.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.MOST_OCULT.ForeColor = System.Drawing.Color.Black;
+            this.MOST_OCULT.Location = new System.Drawing.Point(464, 203);
+            this.MOST_OCULT.Name = "MOST_OCULT";
+            this.MOST_OCULT.Size = new System.Drawing.Size(148, 13);
+            this.MOST_OCULT.TabIndex = 10;
+            this.MOST_OCULT.Text = "MOSTRAR CONTRASEÑA";
+            // 
             // LOGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 363);
+            this.Controls.Add(this.MOST_OCULT);
             this.Controls.Add(this.LIMPIAR);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkCLAVE);
             this.Controls.Add(this.SALIR);
             this.Controls.Add(this.INGRESAR);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textCLAVE);
+            this.Controls.Add(this.textUSUARIO);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LOGIN";
@@ -156,14 +169,15 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textUSUARIO;
+        private System.Windows.Forms.TextBox textCLAVE;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button INGRESAR;
         private System.Windows.Forms.Button SALIR;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkCLAVE;
         private System.Windows.Forms.Button LIMPIAR;
+        private System.Windows.Forms.TextBox MOST_OCULT;
     }
 }
 
