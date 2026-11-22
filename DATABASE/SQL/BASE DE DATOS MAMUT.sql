@@ -16,7 +16,8 @@ Descripcion varchar(40)
 create table PERSONAL( 
 IdPersonal int identity(1,1) primary key, 
 Nombre varchar(30), 
-Apellido varchar(30), 
+Apellido_Paterno varchar(30), 
+Apellido_Materno varchar(30), 
 Cargo varchar(30), 
 Usuario varchar(30), 
 Password varchar(40) 
@@ -51,6 +52,14 @@ CantidadMovida decimal(10,2),
 FechaMovimiento datetime, TipoMovimiento varchar(30), 
 foreign key(IdLote) references LOTE_DE_CAUCHO(IdLote), foreign key(IdPersonal) references PERSONAL(IdPersonal) 
 ); 
+create table REPORTES(
+COD_reporte int identity (1,1) primary key,
+usuario varchar (30),
+Tipo_de_reporte varchar(30) not null,
+nombre_de_reporte varchar(100) not null,
+detalle_de_reporte varchar(500)not null,
+Fecha date not null,
+);
  
 ---inserts de cada tabla ---- 
   
@@ -68,12 +77,12 @@ insert into ALMACEN (Nombre, Ubicacion, Descripcion) values
 ('Almacen Insumos', 'Planta Central', 'Aditivos y materiales auxiliares'), 
 ('Almacen Reserva', 'Planta Sur', 'Stock de seguridad de caucho'); 
  
-insert into PERSONAL (Nombre, Apellido, Cargo, Usuario, Password) values 
-('Carlos', 'Mamani', 'Encargado', 'cmamani', 'clave123'), 
-('Lucia', 'Quispe', 'Supervisor', 'lquispe', 'clave456'), 
-('Diego', 'Flores', 'Operador', 'dflores', 'clave789'), 
-('Ana', 'Choque', 'Almacenera', 'achoque', 'clave321'), 
-('Pedro', 'Apaza', 'Operador', 'papaza', 'clave654'); 
+insert into PERSONAL (Nombre, Apellido_Paterno, Apellido_Materno, Cargo, Usuario, Password) values 
+('Carlos', 'Mamani', 'Ticona', 'Encargado', 'cmamani', 'clave123'), 
+('Lucia', 'Quispe', 'Mamani', 'Supervisor', 'lquispe', 'clave456'), 
+('Diego', 'Flores', 'Choque', 'Operador', 'dflores', 'clave789'), 
+('Ana', 'Choque', 'Colque', 'Almacenera', 'achoque', 'clave321'), 
+('Pedro', 'Apaza', 'Gutierrez', 'Operador', 'papaza', 'clave654'); 
  
 insert into MATERIAL (IdProveedor, IdPersonal, TipoMaterial, Estado, CantidadKg, 
 FechaRecep) values 
@@ -110,6 +119,7 @@ select * from MATERIAL
 select * from LOTE_DE_CAUCHO
 select * from GENERA
 select * from MOVIMIENTO
+select * from REPORTES
 
 
 SELECT @@SERVERNAME AS NombreServidor;
@@ -117,4 +127,4 @@ SELECT @@SERVERNAME AS NombreServidor;
 
  drop database MAMUT
  DROP TABLE GENERA
- INSERT INTO PERSONAL(Nombre, Apellido, Cargo, Usuario, Password)VALUES('kevin','blanco','tecnico de sistemas','admin','1234');
+ INSERT INTO PERSONAL(Nombre, Apellido_Paterno, Apellido_Materno, Cargo, Usuario, Password)VALUES('Kevin','choquetarqui','Blanco','tecnico de sistemas','admin','1234');

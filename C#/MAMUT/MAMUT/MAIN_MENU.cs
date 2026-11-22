@@ -16,9 +16,11 @@ namespace MAMUT
         public MAIN_MENU()
         {
             InitializeComponent();
+            ID.Text = contadores.id;
             usuario.Text = contadores.usuario;
             nombre.Text = contadores.nombre;
-            apellido.Text = contadores.apellido;
+            apellidoP.Text = contadores.apellido_paterno;
+            apellidoM.Text = contadores.apellido_materno;
             cargo.Text = contadores.cargo;
         }
 
@@ -64,5 +66,14 @@ namespace MAMUT
 
         }
 
+        private void gESTIONARREPORTESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nombre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

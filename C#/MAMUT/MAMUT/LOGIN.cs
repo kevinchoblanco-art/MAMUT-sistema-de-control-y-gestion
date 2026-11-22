@@ -56,7 +56,7 @@ namespace MAMUT
                 using (SqlConnection conexion = ConexionBD.Conectar())
                 {
                     conexion.Open();
-                    string sql = @"SELECT Nombre, Apellido, Cargo
+                    string sql = @"SELECT Nombre, Apellido_Paterno, Apellido_Materno, Cargo, IdPersonal
                                  FROM PERSONAL
                                  WHERE Usuario = @usuario
                                  AND Password = @clave";
@@ -72,8 +72,10 @@ namespace MAMUT
                             if (reader.Read())
                             {
                                 cantidad = 1; // Se encontró el registro
+                                contadores.id = reader["IdPersonal"].ToString();
                                 contadores.nombre = reader["Nombre"].ToString();
-                                contadores.apellido = reader["Apellido"].ToString();
+                                contadores.apellido_paterno = reader["Apellido_Paterno"].ToString();
+                                contadores.apellido_materno = reader["Apellido_Materno"].ToString();
                                 contadores.cargo = reader["Cargo"].ToString();
                                 contadores.usuario = usuario;
                             }
