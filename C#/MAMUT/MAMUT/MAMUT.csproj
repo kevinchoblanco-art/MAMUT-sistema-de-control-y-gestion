@@ -203,6 +203,9 @@
     <Compile Include="USUARIOS.Designer.cs">
       <DependentUpon>USUARIOS.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GEST_REPORTES.resx">
+      <DependentUpon>GEST_REPORTES.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
     </EmbeddedResource>
