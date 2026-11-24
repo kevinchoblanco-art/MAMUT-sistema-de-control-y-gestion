@@ -1,6 +1,6 @@
 create database MAMUT  
- use MAMUT  
-create table PROVEEDOR( 
+use MAMUT  
+/*create table PROVEEDOR( 
 IdProveedor int identity(1,1) primary key, 
 Nombre varchar(40), 
 Telefono varchar(30), 
@@ -60,7 +60,8 @@ nombre_de_reporte varchar(100) not null,
 detalle_de_reporte varchar(500)not null,
 Fecha date not null,
 );
- 
+*/
+
 ---inserts de cada tabla ---- 
   
 insert into PROVEEDOR (Nombre, Telefono, Direccion, TipoProv)
@@ -78,11 +79,13 @@ insert into ALMACEN (Nombre, Ubicacion, Descripcion) values
 ('Almacen Reserva', 'Planta Sur', 'Stock de seguridad de caucho'); 
  
 insert into PERSONAL (Nombre, Apellido_Paterno, Apellido_Materno, Cargo, Usuario, Password) values 
+('Kevin','choquetarqui','Blanco','tecnico de sistemas','admin','1234'),
 ('Carlos', 'Mamani', 'Ticona', 'Encargado', 'cmamani', 'clave123'), 
 ('Lucia', 'Quispe', 'Mamani', 'Supervisor', 'lquispe', 'clave456'), 
 ('Diego', 'Flores', 'Choque', 'Operador', 'dflores', 'clave789'), 
 ('Ana', 'Choque', 'Colque', 'Almacenera', 'achoque', 'clave321'), 
 ('Pedro', 'Apaza', 'Gutierrez', 'Operador', 'papaza', 'clave654'); 
+
  
 insert into MATERIAL (IdProveedor, IdPersonal, TipoMaterial, Estado, CantidadKg, 
 FechaRecep) values 
@@ -111,6 +114,21 @@ insert into MOVIMIENTO values
 ('MO3', 'L3', 1, 100.00, '2026-11-18 08:45:00', 'Ingreso'), 
 ('MO4', 'L4', 4, 40.50, '2026-11-18 15:20:00', 'Salida'), 
 ('MO5', 'L5', 2, 90.00, '2026-11-19 10:10:00', 'Traslado'); 
+
+INSERT INTO REPORTES VALUES
+('admin', 'REPORTE DE ERROR DE SISTEMA', 'error al cerrar sesion', 'al cerrar sesion el sistema cierra el programa', '2026-11-11'),
+('admin', 'REPORTE DE ERROR DE SISTEMA', 'Error al cerrar sesion', 'Al cerrar sesion el sistema cierra el programa de forma inesperada.', '2026-11-11'),
+('admin', 'REPORTE DE ERROR DE SISTEMA', 'Fallo de conexion a BD', 'Se perdio la conexion con SQL Server al intentar guardar los cambios.', '2026-11-12'),
+('jperez', 'REPORTE DE ERROR DE SISTEMA', 'Tiempo de espera agotado', 'La consulta de inventario tardo demasiado y arrojo un error de tiempo de espera agotado.', '2026-11-13'),
+('mlopez', 'REPORTE DE MATERIAL', 'Stock bajo de materia prima', 'El material seleccionado esta por debajo del stock minimo permitido en almacen.', '2026-11-12'),
+('jperez', 'REPORTE DE MATERIAL', 'Diferencia en conteo fisico', 'Se detecto una diferencia entre el stock del sistema y el conteo fisico realizado.', '2026-11-14'),
+('mlopez', 'REPORTE DE MATERIAL', 'Material proximo a vencer', 'Existen unidades de material que requieren revision por proximidad a fecha de vencimiento.', '2026-11-15'),
+('rgarcia', 'REPORTE DE LOTE', 'Observacion en lote de caucho', 'El lote de caucho registro variacion en la inspeccion de calidad inicial.', '2026-11-13'),
+('rgarcia', 'REPORTE DE LOTE', 'Lote retenido en almacen', 'El lote quedo retenido temporalmente hasta confirmar resultados de control de calidad.', '2026-11-16'),
+('jperez', 'REPORTE DE LOTE', 'Cierre de produccion de lote', 'Se completo el registro y cierre del lote en el sistema sin incidencias.', '2026-11-17'),
+('cmendoza', 'REPORTE DE PROVEEDOR', 'Retraso en entrega de pedido', 'El proveedor entrego el pedido fuera de la fecha acordada en la orden de compra.', '2026-11-14'),
+('cmendoza', 'REPORTE DE PROVEEDOR', 'Incidencia en factura o guia', 'La guia de remision no coincide con las cantidades facturadas por el proveedor.', '2026-11-16'),
+('admin', 'REPORTE DE PROVEEDOR', 'Actualizacion de datos de proveedor', 'Se actualizaron datos de contacto y condiciones comerciales del proveedor.', '2026-11-18');
  
 select * from PROVEEDOR
 select * from ALMACEN
@@ -122,9 +140,11 @@ select * from MOVIMIENTO
 
 
 
+
+SELECT COUNT(*) AS TotalReportes FROM REPORTES WHERE COD_reporte = 13;
+
 SELECT @@SERVERNAME AS NombreServidor;
 
 
  drop database MAMUT
- DROP TABLE GENERA
- INSERT INTO PERSONAL(Nombre, Apellido_Paterno, Apellido_Materno, Cargo, Usuario, Password)VALUES('Kevin','choquetarqui','Blanco','tecnico de sistemas','admin','1234');
+ DROP TABLE REPORTES

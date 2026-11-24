@@ -66,14 +66,15 @@ namespace MAMUT
 
         }
 
-        private void gESTIONARREPORTESToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nombre_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void nombre_Click(object sender, EventArgs e)
+        private void gESTIONDEREPORTESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            GEST_REPORTES gest_reportes = new GEST_REPORTES();
+            gest_reportes.ShowDialog();
         }
     }
 }
