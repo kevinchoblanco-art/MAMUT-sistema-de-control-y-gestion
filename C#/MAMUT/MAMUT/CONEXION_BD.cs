@@ -10,7 +10,7 @@ namespace SistemaLogin
     public class ConexionBD
     {
         private static string cadena =
-            @"Server=AFK®25;
+            @"Server=DESKTOP-0TTAEMV;
             Database=MAMUT;
             Integrated Security=True;
             TrustServerCertificate=True;";

@@ -119,7 +119,7 @@ select * from MATERIAL
 select * from LOTE_DE_CAUCHO
 select * from GENERA
 select * from MOVIMIENTO
-select * from REPORTES
+
 
 
 SELECT @@SERVERNAME AS NombreServidor;
