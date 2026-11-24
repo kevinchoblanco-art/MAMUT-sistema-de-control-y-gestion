@@ -21,7 +21,6 @@ namespace MAMUT
             InitializeComponent();
             MOSTRAR_LIBROS();
         }
-        string TIPO;
         private void MOSTRAR_LIBROS()
         {
             try
@@ -42,6 +41,7 @@ namespace MAMUT
                     MOST_REPORT.DataSource = tabla;
                     TIPO_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
                     ORDENAR_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
+                    TIPO_DE_BUSQUEDA.DropDownStyle = ComboBoxStyle.DropDownList;
                 }
             }
             catch (Exception ex)
@@ -188,5 +188,143 @@ namespace MAMUT
                 }
             }
         }
+
+        private void EDITAR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SALIR_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BUSCAR_Click(object sender, EventArgs e)
+        {
+            if (TIPO_DE_BUSQUEDA.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona un tipo de búsqueda.");
+                return;
+            }
+
+            string opciondebusqueda = TIPO_DE_BUSQUEDA.SelectedItem.ToString();
+
+            if (opciondebusqueda == "CODIGO")
+            {
+                if (!int.TryParse(DATO_DE_BUSQ.Text.Trim(), out int codigodebusq))
+                {
+                    MessageBox.Show("Ingresa un código numérico válido.");
+                    return;
+                }
+
+                try
+                {
+                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    {
+                        conexion.Open();
+
+                        string sqltipo = "SELECT * FROM REPORTES WHERE COD_reporte = @codigodebusq;";
+
+                        using (SqlCommand cmd = new SqlCommand(sqltipo, conexion))
+                        {
+                            cmd.Parameters.Add("@codigodebusq", SqlDbType.Int).Value = codigodebusq;
+
+                            using (SqlDataAdapter adaptador = new SqlDataAdapter(cmd))
+                            {
+                                DataTable tabla = new DataTable();
+                                adaptador.Fill(tabla);
+
+                                if (tabla.Rows.Count == 0)
+                                {
+                                    MessageBox.Show("No se encontró ningún reporte con ese código.");
+                                }
+
+                                MOST_REPORT.DataSource = tabla;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al consultar reportes: " + ex.Message);
+                }
+            }
+            else if (opciondebusqueda == "NOMBRE DE REPORTE")
+            {
+                string codigodebusq = DATO_DE_BUSQ.Text.ToString();
+                try
+                {
+                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    {
+                        conexion.Open();
+
+                        string sqltipo = "SELECT * FROM REPORTES WHERE nombre_de_reporte = @codigodebusq;";
+
+                        using (SqlCommand cmd = new SqlCommand(sqltipo, conexion))
+                        {
+                            cmd.Parameters.Add("@codigodebusq", SqlDbType.VarChar, 30).Value = codigodebusq;
+
+                            using (SqlDataAdapter adaptador = new SqlDataAdapter(cmd))
+                            {
+                                DataTable tabla = new DataTable();
+                                adaptador.Fill(tabla);
+
+                                if (tabla.Rows.Count == 0)
+                                {
+                                    MessageBox.Show("No se encontró ningún reporte con ese código.");
+                                }
+
+                                MOST_REPORT.DataSource = tabla;
+                            }
+                        }
+                    }
+                    DATO_DE_BUSQ.Focus();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al consultar reportes: " + ex.Message);
+                }
+            }
+            else if (opciondebusqueda == "USUARIO")
+            {
+                string codigodebusq = DATO_DE_BUSQ.Text.ToString();
+
+                try
+                {
+                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    {
+                        conexion.Open();
+
+                        string sqltipo = "SELECT * FROM REPORTES WHERE usuario = @codigodebusq;";
+
+                        using (SqlCommand cmd = new SqlCommand(sqltipo, conexion))
+                        {
+                            cmd.Parameters.Add("@codigodebusq", SqlDbType.VarChar, 30).Value = codigodebusq;
+
+                            using (SqlDataAdapter adaptador = new SqlDataAdapter(cmd))
+                            {
+                                DataTable tabla = new DataTable();
+                                adaptador.Fill(tabla);
+
+                                if (tabla.Rows.Count == 0)
+                                {
+                                    MessageBox.Show("No se encontró ningún reporte con ese código.");
+                                }
+
+                                MOST_REPORT.DataSource = tabla;
+                            }
+                        }
+                    }
+                    DATO_DE_BUSQ.Focus();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al consultar reportes: " + ex.Message);
+                }
+            }
+            DATO_DE_BUSQ.Clear();
+            DATO_DE_BUSQ.Focus();
+        }
     }
 }
+
