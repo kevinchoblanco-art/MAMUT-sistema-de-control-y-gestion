@@ -159,12 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONEXION_BD.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="GEST_REPORTES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,11 +209,17 @@
     <EmbeddedResource Include="GEST_REPORTES.resx">
       <DependentUpon>GEST_REPORTES.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuario1.resx">
+      <DependentUpon>FrmUsuario1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN_MENU.resx">
       <DependentUpon>MAIN_MENU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MATERIAL.resx">
+      <DependentUpon>MATERIAL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MOVIMIENTOS.resx">
       <DependentUpon>MOVIMIENTOS.cs</DependentUpon>

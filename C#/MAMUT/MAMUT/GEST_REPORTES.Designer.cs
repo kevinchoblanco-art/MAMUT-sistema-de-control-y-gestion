@@ -85,6 +85,7 @@
             this.REPORTAR.TabIndex = 2;
             this.REPORTAR.Text = "REPORTAR";
             this.REPORTAR.UseVisualStyleBackColor = true;
+            this.REPORTAR.Click += new System.EventHandler(this.REPORTAR_Click);
             // 
             // EDITAR
             // 
