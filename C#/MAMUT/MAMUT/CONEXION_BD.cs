@@ -22,6 +22,7 @@ namespace SistemaLogin
     }
     public static class contadores
     {
+        public static bool admin_activo { get; set; }
         public static bool sesion_abierta  { get; set; }
         public static string id { get; set; }
         public static string usuario { get; set; }

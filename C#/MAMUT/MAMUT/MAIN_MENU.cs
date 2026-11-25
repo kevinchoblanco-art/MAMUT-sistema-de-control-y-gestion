@@ -22,6 +22,14 @@ namespace MAMUT
             apellidoP.Text = contadores.apellido_paterno;
             apellidoM.Text = contadores.apellido_materno;
             cargo.Text = contadores.cargo;
+            if (contadores.usuario == "admin" || contadores.usuario == "ADMIN")
+            {
+                contadores.admin_activo = true;
+            }
+            else
+            {
+                contadores.admin_activo = false;
+            }
         }
 
         private void cERRARSESIONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,6 +83,12 @@ namespace MAMUT
         {
             GEST_REPORTES gest_reportes = new GEST_REPORTES();
             gest_reportes.ShowDialog();
+        }
+
+        private void gESTIONDEPROVEEDORESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GESTION_PROVEEDORES gest_proveedores = new GESTION_PROVEEDORES();
+            gest_proveedores.ShowDialog();
         }
     }
 }

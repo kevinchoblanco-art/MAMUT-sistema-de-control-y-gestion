@@ -52,146 +52,273 @@ namespace MAMUT
 
         private void ACTUALISAR_Click(object sender, EventArgs e)
         {
-            if (TIPO_REPO.SelectedItem == null)
+            if (TIPO_REPO.SelectedItem == null && ORDENAR_REPO.SelectedItem == null)
             {
-                MessageBox.Show("Selecciona A o B.");
+                MessageBox.Show("Selecciona el tipo o el orden");
                 return;
             }
-
-            string opcionElegida = TIPO_REPO.SelectedItem.ToString();
-
-            if (opcionElegida == "REPORTE DE MATERIAL")
+            if (TIPO_REPO.SelectedItem != null)
             {
-                try
+                string opcionElegida = TIPO_REPO.SelectedItem.ToString();
+                if (opcionElegida == "REPORTE DE MATERIAL")
                 {
-                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    try
                     {
-                        conexion.Open();
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
 
-                        string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE MATERIAL'";
+                            string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE MATERIAL'";
 
-                        SqlDataAdapter adaptador =
-                            new SqlDataAdapter(sqltipo, conexion);
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sqltipo, conexion);
 
-                        DataTable tabla = new DataTable();
+                            DataTable tabla = new DataTable();
 
-                        adaptador.Fill(tabla);
+                            adaptador.Fill(tabla);
 
-                        MOST_REPORT.DataSource = tabla;
+                            MOST_REPORT.DataSource = tabla;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
                     }
                 }
-                catch (Exception ex)
+                else if (opcionElegida == "REPORTE DE LOTE")
                 {
-                    MessageBox.Show("Error al listar libros: " + ex.Message);
-                }
-            }
-            else if (opcionElegida == "REPORTE DE LOTE")
-            {
-                try
-                {
-                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    try
                     {
-                        conexion.Open();
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
 
-                        string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE LOTE'";
+                            string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE LOTE'";
 
-                        SqlDataAdapter adaptador =
-                            new SqlDataAdapter(sqltipo, conexion);
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sqltipo, conexion);
 
-                        DataTable tabla = new DataTable();
+                            DataTable tabla = new DataTable();
 
-                        adaptador.Fill(tabla);
+                            adaptador.Fill(tabla);
 
-                        MOST_REPORT.DataSource = tabla;
+                            MOST_REPORT.DataSource = tabla;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
                     }
                 }
-                catch (Exception ex)
+                else if (opcionElegida == "REPORTE DE PROVEEDOR")
                 {
-                    MessageBox.Show("Error al listar libros: " + ex.Message);
-                }
-            }
-            else if (opcionElegida == "REPORTE DE PROVEEDOR")
-            {
-                try
-                {
-                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    try
                     {
-                        conexion.Open();
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
 
-                        string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE PROVEEDOR'";
+                            string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE PROVEEDOR'";
 
-                        SqlDataAdapter adaptador =
-                            new SqlDataAdapter(sqltipo, conexion);
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sqltipo, conexion);
 
-                        DataTable tabla = new DataTable();
+                            DataTable tabla = new DataTable();
 
-                        adaptador.Fill(tabla);
+                            adaptador.Fill(tabla);
 
-                        MOST_REPORT.DataSource = tabla;
+                            MOST_REPORT.DataSource = tabla;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
                     }
                 }
-                catch (Exception ex)
+                else if (opcionElegida == "REPORTE DE ERROR DE SISTEMA")
                 {
-                    MessageBox.Show("Error al listar libros: " + ex.Message);
-                }
-            }
-            else if (opcionElegida == "REPORTE DE ERROR DE SISTEMA")
-            {
-                try
-                {
-                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    try
                     {
-                        conexion.Open();
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
 
-                        string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE ERROR DE SISTEMA'";
+                            string sqltipo = "select * from REPORTES where Tipo_de_reporte = 'REPORTE DE ERROR DE SISTEMA'";
 
-                        SqlDataAdapter adaptador =
-                            new SqlDataAdapter(sqltipo, conexion);
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sqltipo, conexion);
 
-                        DataTable tabla = new DataTable();
+                            DataTable tabla = new DataTable();
 
-                        adaptador.Fill(tabla);
+                            adaptador.Fill(tabla);
 
-                        MOST_REPORT.DataSource = tabla;
+                            MOST_REPORT.DataSource = tabla;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
                     }
                 }
-                catch (Exception ex)
+                else if (opcionElegida == "MOSTRAR TODOS LOS REPORTES")
                 {
-                    MessageBox.Show("Error al listar libros: " + ex.Message);
-                }
-            }
-            else if (opcionElegida == "MOSTRAR TODOS LOS REPORTES")
-            {
-                try
-                {
-                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    try
                     {
-                        conexion.Open();
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
 
-                        string sql = "SELECT * FROM REPORTES";
+                            string sql = "SELECT * FROM REPORTES";
 
-                        SqlDataAdapter adaptador =
-                            new SqlDataAdapter(sql, conexion);
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sql, conexion);
 
-                        DataTable tabla = new DataTable();
+                            DataTable tabla = new DataTable();
 
-                        adaptador.Fill(tabla);
+                            adaptador.Fill(tabla);
 
-                        MOST_REPORT.DataSource = tabla;
-                        TIPO_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
-                        ORDENAR_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
+                            MOST_REPORT.DataSource = tabla;
+                            TIPO_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
+                            ORDENAR_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
                     }
                 }
-                catch (Exception ex)
+            }
+            
+            if (ORDENAR_REPO.SelectedItem != null) 
+            {
+                string ordenar = ORDENAR_REPO.SelectedItem.ToString();
+                if (ordenar == "MAS RECIENTE PRIMERO")
                 {
-                    MessageBox.Show("Error al listar libros: " + ex.Message);
+                    try
+                    {
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
+
+                            string sqltipo = "SELECT * FROM REPORTES ORDER BY Fecha desc";
+
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sqltipo, conexion);
+
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(tabla);
+
+                            MOST_REPORT.DataSource = tabla;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
+                    }
+                }
+                else if (ordenar == "MAS ANTIGUO PRIMERO")
+                {
+                    try
+                    {
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
+
+                            string sqltipo = "SELECT * FROM REPORTES ORDER BY Fecha asc";
+
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sqltipo, conexion);
+
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(tabla);
+
+                            MOST_REPORT.DataSource = tabla;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
+                    }
+                }
+                else if (ordenar == "POR CODIGO ACENDENTE")
+                {
+                    try
+                    {
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
+
+                            string sqltipo = "SELECT * FROM REPORTES ORDER BY COD_reporte asc";
+
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sqltipo, conexion);
+
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(tabla);
+
+                            MOST_REPORT.DataSource = tabla;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
+                    }
+                }
+                else if (ordenar == "POR CODIGO DESENDENTE")
+                {
+                    try
+                    {
+                        using (SqlConnection conexion = ConexionBD.Conectar())
+                        {
+                            conexion.Open();
+
+                            string sql = "SELECT * FROM REPORTES ORDER BY COD_reporte desc";
+
+                            SqlDataAdapter adaptador =
+                                new SqlDataAdapter(sql, conexion);
+
+                            DataTable tabla = new DataTable();
+
+                            adaptador.Fill(tabla);
+
+                            MOST_REPORT.DataSource = tabla;
+                            TIPO_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
+                            ORDENAR_REPO.DropDownStyle = ComboBoxStyle.DropDownList;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al listar libros: " + ex.Message);
+                    }
                 }
             }
+            
+            //ordnera por... /  /  / POR CODIGO DESENDENTE
+            
+            TIPO_REPO.SelectedIndex = -1;
+            ORDENAR_REPO.SelectedIndex = -1;
         }
+
 
         private void EDITAR_Click(object sender, EventArgs e)
         {
-
+            CODIGO_DE_EDIT.Focus();
+            NOMBRE_DE_EDIT.Clear();
+            DETALLE_DE_EDIT.Clear();
+            CODIGO_DE_EDIT.Visible = true;
+            NOMBRE_DE_EDIT.Visible = true;
+            DETALLE_DE_EDIT.Visible = true;
+            label4.Visible = false;
+            TIPO_DE_BUSQUEDA.Visible = false;
+            DATO_DE_BUSQ.Visible = false;
+            BUSCAR.Visible = false;
+            edit1.Visible = true;
+            edit2.Visible = true;
+            edit3.Visible = true;
+            actalisarReporte.Visible = true;
         }
 
         private void SALIR_Click(object sender, EventArgs e)
@@ -322,8 +449,77 @@ namespace MAMUT
                     MessageBox.Show("Error al consultar reportes: " + ex.Message);
                 }
             }
+            TIPO_DE_BUSQUEDA.SelectedIndex = -1;
             DATO_DE_BUSQ.Clear();
             DATO_DE_BUSQ.Focus();
+        }
+
+        private void actalisarReporte_Click(object sender, EventArgs e)
+        {
+            string codigoedit = CODIGO_DE_EDIT.Text.ToString();
+            string nombreedit = NOMBRE_DE_EDIT.Text.ToString();
+            string detalledit = DETALLE_DE_EDIT.Text.ToString();
+
+            if (contadores.admin_activo == true)
+            {
+                if (!int.TryParse(CODIGO_DE_EDIT.Text.Trim(), out int codigodebusq))
+                {
+                    MessageBox.Show("Ingresa un código numérico válido.");
+                    return;
+                }
+                try
+                {
+                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    {
+                        conexion.Open();
+
+                        string sqledit = "UPDATE REPORTES SET nombre_de_reporte = @nombreedit, detalle_de_reporte = @detalledit where COD_reporte = @codigoedit;";
+
+                        using (SqlCommand cmd = new SqlCommand(sqledit, conexion))
+                        {
+                            cmd.Parameters.Add("@codigoedit", SqlDbType.VarChar, 30).Value = codigoedit;
+                            cmd.Parameters.Add("@nombreedit", SqlDbType.VarChar, 200).Value = nombreedit;
+                            cmd.Parameters.Add("@detalledit", SqlDbType.VarChar, 30).Value = detalledit;
+                            int filasAfectadas = cmd.ExecuteNonQuery();
+
+                            if (filasAfectadas > 0)
+                            {
+                                MessageBox.Show("Reporte actualizado correctamente.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró ningún reporte con ese código.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al editar reportes: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("SOLO EL ADMINISTRADOR PUEDE EDITAR REPORTES");
+                CODIGO_DE_EDIT.Clear();
+                NOMBRE_DE_EDIT.Clear();
+                DETALLE_DE_EDIT.Clear();
+            }
+        }
+
+        private void BUSCAR_POR_Click(object sender, EventArgs e)
+        {
+            CODIGO_DE_EDIT.Visible = false;
+            NOMBRE_DE_EDIT.Visible = false;
+            DETALLE_DE_EDIT.Visible = false;
+            label4.Visible = true;
+            TIPO_DE_BUSQUEDA.Visible = true;
+            DATO_DE_BUSQ.Visible = true;
+            BUSCAR.Visible = true;
+            edit1.Visible = false;
+            edit2.Visible = false;
+            edit3.Visible = false;
+            actalisarReporte.Visible = false;
         }
     }
 }

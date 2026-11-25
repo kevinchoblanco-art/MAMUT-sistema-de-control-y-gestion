@@ -44,6 +44,13 @@
             this.DATO_DE_BUSQ = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TIPO_DE_BUSQUEDA = new System.Windows.Forms.ComboBox();
+            this.CODIGO_DE_EDIT = new System.Windows.Forms.TextBox();
+            this.NOMBRE_DE_EDIT = new System.Windows.Forms.TextBox();
+            this.DETALLE_DE_EDIT = new System.Windows.Forms.TextBox();
+            this.actalisarReporte = new System.Windows.Forms.Button();
+            this.edit1 = new System.Windows.Forms.Label();
+            this.edit2 = new System.Windows.Forms.Label();
+            this.edit3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MOST_REPORT)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,8 +112,8 @@
             this.ORDENAR_REPO.Items.AddRange(new object[] {
             "MAS RECIENTE PRIMERO",
             "MAS ANTIGUO PRIMERO",
-            "ORDENAR POR CODIGO",
-            "SEPARAR POR TIPO"});
+            "POR CODIGO ACENDENTE",
+            "POR CODIGO DESENDENTE"});
             this.ORDENAR_REPO.Location = new System.Drawing.Point(634, 222);
             this.ORDENAR_REPO.Name = "ORDENAR_REPO";
             this.ORDENAR_REPO.Size = new System.Drawing.Size(359, 25);
@@ -174,10 +181,11 @@
             this.BUSCAR_POR.TabIndex = 12;
             this.BUSCAR_POR.Text = "BUSCAR POR ......";
             this.BUSCAR_POR.UseVisualStyleBackColor = true;
+            this.BUSCAR_POR.Click += new System.EventHandler(this.BUSCAR_POR_Click);
             // 
             // BUSCAR
             // 
-            this.BUSCAR.Location = new System.Drawing.Point(860, 163);
+            this.BUSCAR.Location = new System.Drawing.Point(860, 180);
             this.BUSCAR.Name = "BUSCAR";
             this.BUSCAR.Size = new System.Drawing.Size(180, 26);
             this.BUSCAR.TabIndex = 14;
@@ -187,7 +195,7 @@
             // 
             // DATO_DE_BUSQ
             // 
-            this.DATO_DE_BUSQ.Location = new System.Drawing.Point(531, 167);
+            this.DATO_DE_BUSQ.Location = new System.Drawing.Point(531, 184);
             this.DATO_DE_BUSQ.Name = "DATO_DE_BUSQ";
             this.DATO_DE_BUSQ.Size = new System.Drawing.Size(314, 20);
             this.DATO_DE_BUSQ.TabIndex = 18;
@@ -195,7 +203,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 170);
+            this.label4.Location = new System.Drawing.Point(52, 187);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 15;
@@ -208,16 +216,88 @@
             "CODIGO",
             "NOMBRE DE REPORTE",
             "USUARIO"});
-            this.TIPO_DE_BUSQUEDA.Location = new System.Drawing.Point(168, 167);
+            this.TIPO_DE_BUSQUEDA.Location = new System.Drawing.Point(168, 184);
             this.TIPO_DE_BUSQUEDA.Name = "TIPO_DE_BUSQUEDA";
             this.TIPO_DE_BUSQUEDA.Size = new System.Drawing.Size(226, 21);
             this.TIPO_DE_BUSQUEDA.TabIndex = 13;
+            // 
+            // CODIGO_DE_EDIT
+            // 
+            this.CODIGO_DE_EDIT.Location = new System.Drawing.Point(53, 182);
+            this.CODIGO_DE_EDIT.Name = "CODIGO_DE_EDIT";
+            this.CODIGO_DE_EDIT.Size = new System.Drawing.Size(179, 20);
+            this.CODIGO_DE_EDIT.TabIndex = 19;
+            this.CODIGO_DE_EDIT.Visible = false;
+            // 
+            // NOMBRE_DE_EDIT
+            // 
+            this.NOMBRE_DE_EDIT.Location = new System.Drawing.Point(257, 182);
+            this.NOMBRE_DE_EDIT.Name = "NOMBRE_DE_EDIT";
+            this.NOMBRE_DE_EDIT.Size = new System.Drawing.Size(180, 20);
+            this.NOMBRE_DE_EDIT.TabIndex = 20;
+            this.NOMBRE_DE_EDIT.Visible = false;
+            // 
+            // DETALLE_DE_EDIT
+            // 
+            this.DETALLE_DE_EDIT.Location = new System.Drawing.Point(465, 182);
+            this.DETALLE_DE_EDIT.Name = "DETALLE_DE_EDIT";
+            this.DETALLE_DE_EDIT.Size = new System.Drawing.Size(381, 20);
+            this.DETALLE_DE_EDIT.TabIndex = 21;
+            this.DETALLE_DE_EDIT.Visible = false;
+            // 
+            // actalisarReporte
+            // 
+            this.actalisarReporte.Location = new System.Drawing.Point(852, 178);
+            this.actalisarReporte.Name = "actalisarReporte";
+            this.actalisarReporte.Size = new System.Drawing.Size(180, 26);
+            this.actalisarReporte.TabIndex = 22;
+            this.actalisarReporte.Text = "ACTUALIZAR";
+            this.actalisarReporte.UseVisualStyleBackColor = true;
+            this.actalisarReporte.Visible = false;
+            this.actalisarReporte.Click += new System.EventHandler(this.actalisarReporte_Click);
+            // 
+            // edit1
+            // 
+            this.edit1.AutoSize = true;
+            this.edit1.Location = new System.Drawing.Point(78, 166);
+            this.edit1.Name = "edit1";
+            this.edit1.Size = new System.Drawing.Size(128, 13);
+            this.edit1.TabIndex = 23;
+            this.edit1.Text = "CODIGO DEL REPORTE";
+            this.edit1.Visible = false;
+            // 
+            // edit2
+            // 
+            this.edit2.AutoSize = true;
+            this.edit2.Location = new System.Drawing.Point(282, 166);
+            this.edit2.Name = "edit2";
+            this.edit2.Size = new System.Drawing.Size(127, 13);
+            this.edit2.TabIndex = 24;
+            this.edit2.Text = "NOMBRE DE REPORTE";
+            this.edit2.Visible = false;
+            // 
+            // edit3
+            // 
+            this.edit3.AutoSize = true;
+            this.edit3.Location = new System.Drawing.Point(593, 166);
+            this.edit3.Name = "edit3";
+            this.edit3.Size = new System.Drawing.Size(134, 13);
+            this.edit3.TabIndex = 25;
+            this.edit3.Text = "DETALLE DEL REPORTE";
+            this.edit3.Visible = false;
             // 
             // GEST_REPORTES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 661);
+            this.Controls.Add(this.edit3);
+            this.Controls.Add(this.edit2);
+            this.Controls.Add(this.edit1);
+            this.Controls.Add(this.actalisarReporte);
+            this.Controls.Add(this.DETALLE_DE_EDIT);
+            this.Controls.Add(this.NOMBRE_DE_EDIT);
+            this.Controls.Add(this.CODIGO_DE_EDIT);
             this.Controls.Add(this.DATO_DE_BUSQ);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BUSCAR);
@@ -260,5 +340,12 @@
         private System.Windows.Forms.TextBox DATO_DE_BUSQ;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox TIPO_DE_BUSQUEDA;
+        private System.Windows.Forms.TextBox CODIGO_DE_EDIT;
+        private System.Windows.Forms.TextBox NOMBRE_DE_EDIT;
+        private System.Windows.Forms.TextBox DETALLE_DE_EDIT;
+        private System.Windows.Forms.Button actalisarReporte;
+        private System.Windows.Forms.Label edit1;
+        private System.Windows.Forms.Label edit2;
+        private System.Windows.Forms.Label edit3;
     }
 }
