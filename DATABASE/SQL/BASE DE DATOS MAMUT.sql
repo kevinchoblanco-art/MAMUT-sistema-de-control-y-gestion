@@ -1,6 +1,6 @@
 create database MAMUT  
 use MAMUT  
-/*create table PROVEEDOR( 
+create table PROVEEDOR( 
 IdProveedor int identity(1,1) primary key, 
 Nombre varchar(40), 
 Telefono varchar(30), 
@@ -19,7 +19,7 @@ Nombre varchar(30),
 Apellido_Paterno varchar(30), 
 Apellido_Materno varchar(30), 
 Cargo varchar(30), 
-Usuario varchar(30), 
+Usuario varchar(30) unique, 
 Password varchar(40) 
 );  
 create table MATERIAL( 
@@ -60,7 +60,7 @@ nombre_de_reporte varchar(100) not null,
 detalle_de_reporte varchar(500)not null,
 Fecha date not null,
 );
-*/
+
 
 ---inserts de cada tabla ---- 
   
@@ -137,14 +137,22 @@ select * from MATERIAL
 select * from LOTE_DE_CAUCHO
 select * from GENERA
 select * from MOVIMIENTO
-
-
+select * from REPORTES
 
 
 SELECT COUNT(*) AS TotalReportes FROM REPORTES WHERE COD_reporte = 13;
 
 SELECT @@SERVERNAME AS NombreServidor;
 
+UPDATE REPORTES SET nombre_de_reporte = 'Error al abrir gestion de material', detalle_de_reporte = 'Al intentar abrir la getsion de material no se abre la ventana que deberia y solo se queda en el menu inicial' where COD_reporte = 1;
+
+select * from REPORTES where Tipo_de_reporte = 'REPORTE DE LOTE'
+SELECT * FROM REPORTES ORDER BY COD_reporte desc
+
+
+
+
+
 
  drop database MAMUT
- DROP TABLE REPORTES
+ DROP TABLE PERSONAL

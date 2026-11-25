@@ -308,6 +308,10 @@ namespace MAMUT
             CODIGO_DE_EDIT.Focus();
             NOMBRE_DE_EDIT.Clear();
             DETALLE_DE_EDIT.Clear();
+            edit1.Visible = true;
+            edit2.Visible = true;
+            edit3.Visible = true;
+            actalisarReporte.Visible = true;
             CODIGO_DE_EDIT.Visible = true;
             NOMBRE_DE_EDIT.Visible = true;
             DETALLE_DE_EDIT.Visible = true;
@@ -315,10 +319,9 @@ namespace MAMUT
             TIPO_DE_BUSQUEDA.Visible = false;
             DATO_DE_BUSQ.Visible = false;
             BUSCAR.Visible = false;
-            edit1.Visible = true;
-            edit2.Visible = true;
-            edit3.Visible = true;
-            actalisarReporte.Visible = true;
+            BORRAR_COD_REPO.Visible = false;
+            BORRAR_REPO.Visible = false;
+            borrar1.Visible = false;
         }
 
         private void SALIR_Click(object sender, EventArgs e)
@@ -509,17 +512,87 @@ namespace MAMUT
 
         private void BUSCAR_POR_Click(object sender, EventArgs e)
         {
-            CODIGO_DE_EDIT.Visible = false;
-            NOMBRE_DE_EDIT.Visible = false;
-            DETALLE_DE_EDIT.Visible = false;
             label4.Visible = true;
             TIPO_DE_BUSQUEDA.Visible = true;
             DATO_DE_BUSQ.Visible = true;
             BUSCAR.Visible = true;
+            CODIGO_DE_EDIT.Visible = false;
+            NOMBRE_DE_EDIT.Visible = false;
+            DETALLE_DE_EDIT.Visible = false;
             edit1.Visible = false;
             edit2.Visible = false;
             edit3.Visible = false;
             actalisarReporte.Visible = false;
+            BORRAR_COD_REPO.Visible = false;
+            BORRAR_REPO.Visible = false;
+            borrar1.Visible = false;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BORRAR_REPO_Click(object sender, EventArgs e)
+        {
+            int codborrar = int.Parse(BORRAR_COD_REPO.Text);
+            if (contadores.admin_activo == true)
+            {
+                try
+                {
+                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    {
+                        conexion.Open();
+
+                        string sqlborrar = "DELETE  FROM REPORTES WHERE COD_reporte = @codborrar";
+
+                        using (SqlCommand cmd = new SqlCommand(sqlborrar, conexion))
+                        {
+                            cmd.Parameters.Add("@codborrar", SqlDbType.Int).Value = codborrar;
+
+                            using (SqlDataAdapter adaptador = new SqlDataAdapter(cmd))
+                            {
+                                DataTable tabla = new DataTable();
+                                adaptador.Fill(tabla);
+
+                                if (tabla.Rows.Count == 0)
+                                {
+                                    MessageBox.Show("No se encontró ningún reporte con ese código.");
+                                }
+
+                                MOST_REPORT.DataSource = tabla;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al consultar reportes: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("SOLO EL ADMINISTRADOR PUEDE BORRAR LOS REPORTES");
+            }
+            
+        }
+
+        private void BORRAR_Click(object sender, EventArgs e)
+        {
+            BORRAR_COD_REPO.Visible = true;
+            BORRAR_REPO.Visible = true;
+            borrar1.Visible = true;
+            CODIGO_DE_EDIT.Visible = false;
+            NOMBRE_DE_EDIT.Visible = false;
+            DETALLE_DE_EDIT.Visible = false;
+            edit1.Visible = false;
+            edit2.Visible = false;
+            edit3.Visible = false;
+            actalisarReporte.Visible = false;
+            label4.Visible = false;
+            TIPO_DE_BUSQUEDA.Visible = false;
+            DATO_DE_BUSQ.Visible = false;
+            BUSCAR.Visible = false;
         }
     }
 }

@@ -51,6 +51,10 @@
             this.edit1 = new System.Windows.Forms.Label();
             this.edit2 = new System.Windows.Forms.Label();
             this.edit3 = new System.Windows.Forms.Label();
+            this.BORRAR_REPO = new System.Windows.Forms.Button();
+            this.BORRAR_COD_REPO = new System.Windows.Forms.TextBox();
+            this.borrar1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MOST_REPORT)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,14 +76,14 @@
             this.MOST_REPORT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.MOST_REPORT.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MOST_REPORT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MOST_REPORT.Location = new System.Drawing.Point(55, 274);
+            this.MOST_REPORT.Location = new System.Drawing.Point(55, 260);
             this.MOST_REPORT.Name = "MOST_REPORT";
-            this.MOST_REPORT.Size = new System.Drawing.Size(987, 343);
+            this.MOST_REPORT.Size = new System.Drawing.Size(987, 357);
             this.MOST_REPORT.TabIndex = 1;
             // 
             // REPORTAR
             // 
-            this.REPORTAR.Location = new System.Drawing.Point(55, 108);
+            this.REPORTAR.Location = new System.Drawing.Point(55, 87);
             this.REPORTAR.Name = "REPORTAR";
             this.REPORTAR.Size = new System.Drawing.Size(180, 26);
             this.REPORTAR.TabIndex = 2;
@@ -88,7 +92,7 @@
             // 
             // EDITAR
             // 
-            this.EDITAR.Location = new System.Drawing.Point(257, 108);
+            this.EDITAR.Location = new System.Drawing.Point(257, 87);
             this.EDITAR.Name = "EDITAR";
             this.EDITAR.Size = new System.Drawing.Size(180, 26);
             this.EDITAR.TabIndex = 3;
@@ -98,12 +102,13 @@
             // 
             // BORRAR
             // 
-            this.BORRAR.Location = new System.Drawing.Point(465, 108);
+            this.BORRAR.Location = new System.Drawing.Point(465, 87);
             this.BORRAR.Name = "BORRAR";
             this.BORRAR.Size = new System.Drawing.Size(180, 26);
             this.BORRAR.TabIndex = 5;
             this.BORRAR.Text = "BORRAR REPORTE";
             this.BORRAR.UseVisualStyleBackColor = true;
+            this.BORRAR.Click += new System.EventHandler(this.BORRAR_Click);
             // 
             // ORDENAR_REPO
             // 
@@ -165,7 +170,7 @@
             // 
             // SALIR
             // 
-            this.SALIR.Location = new System.Drawing.Point(862, 108);
+            this.SALIR.Location = new System.Drawing.Point(862, 87);
             this.SALIR.Name = "SALIR";
             this.SALIR.Size = new System.Drawing.Size(180, 26);
             this.SALIR.TabIndex = 11;
@@ -175,7 +180,7 @@
             // 
             // BUSCAR_POR
             // 
-            this.BUSCAR_POR.Location = new System.Drawing.Point(666, 108);
+            this.BUSCAR_POR.Location = new System.Drawing.Point(666, 87);
             this.BUSCAR_POR.Name = "BUSCAR_POR";
             this.BUSCAR_POR.Size = new System.Drawing.Size(180, 26);
             this.BUSCAR_POR.TabIndex = 12;
@@ -286,11 +291,56 @@
             this.edit3.Text = "DETALLE DEL REPORTE";
             this.edit3.Visible = false;
             // 
+            // BORRAR_REPO
+            // 
+            this.BORRAR_REPO.Location = new System.Drawing.Point(851, 180);
+            this.BORRAR_REPO.Name = "BORRAR_REPO";
+            this.BORRAR_REPO.Size = new System.Drawing.Size(180, 26);
+            this.BORRAR_REPO.TabIndex = 26;
+            this.BORRAR_REPO.Text = "BORRAR";
+            this.BORRAR_REPO.UseVisualStyleBackColor = true;
+            this.BORRAR_REPO.Visible = false;
+            this.BORRAR_REPO.Click += new System.EventHandler(this.BORRAR_REPO_Click);
+            // 
+            // BORRAR_COD_REPO
+            // 
+            this.BORRAR_COD_REPO.Location = new System.Drawing.Point(665, 184);
+            this.BORRAR_COD_REPO.Name = "BORRAR_COD_REPO";
+            this.BORRAR_COD_REPO.Size = new System.Drawing.Size(179, 20);
+            this.BORRAR_COD_REPO.TabIndex = 27;
+            this.BORRAR_COD_REPO.Visible = false;
+            // 
+            // borrar1
+            // 
+            this.borrar1.AutoSize = true;
+            this.borrar1.Location = new System.Drawing.Point(531, 187);
+            this.borrar1.Name = "borrar1";
+            this.borrar1.Size = new System.Drawing.Size(128, 13);
+            this.borrar1.TabIndex = 28;
+            this.borrar1.Text = "CODIGO DEL REPORTE";
+            this.borrar1.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(281, 129);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(544, 21);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "solo el la cuenta de administrador puede borrar o editar los reportes";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // GEST_REPORTES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 661);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.borrar1);
+            this.Controls.Add(this.BORRAR_COD_REPO);
+            this.Controls.Add(this.BORRAR_REPO);
             this.Controls.Add(this.edit3);
             this.Controls.Add(this.edit2);
             this.Controls.Add(this.edit1);
@@ -347,5 +397,9 @@
         private System.Windows.Forms.Label edit1;
         private System.Windows.Forms.Label edit2;
         private System.Windows.Forms.Label edit3;
+        private System.Windows.Forms.Button BORRAR_REPO;
+        private System.Windows.Forms.TextBox BORRAR_COD_REPO;
+        private System.Windows.Forms.Label borrar1;
+        private System.Windows.Forms.Label label6;
     }
 }
