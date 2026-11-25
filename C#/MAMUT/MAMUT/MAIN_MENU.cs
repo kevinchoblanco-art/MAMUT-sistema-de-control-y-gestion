@@ -65,7 +65,7 @@ namespace MAMUT
 
         private void btnUSUARIOS_Click(object sender, EventArgs e)
         {
-            FrmUsuario1 usuarios = new FrmUsuario1();
+            USUARIOS usuarios = new USUARIOS();
             usuarios.ShowDialog();
         }
 

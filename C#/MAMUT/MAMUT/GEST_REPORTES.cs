@@ -453,6 +453,74 @@ namespace MAMUT
             DATO_DE_BUSQ.Clear();
             DATO_DE_BUSQ.Focus();
         }
+
+        private void actalisarReporte_Click(object sender, EventArgs e)
+        {
+            string codigoedit = CODIGO_DE_EDIT.Text.ToString();
+            string nombreedit = NOMBRE_DE_EDIT.Text.ToString();
+            string detalledit = DETALLE_DE_EDIT.Text.ToString();
+
+            if (contadores.admin_activo == true)
+            {
+                if (!int.TryParse(CODIGO_DE_EDIT.Text.Trim(), out int codigodebusq))
+                {
+                    MessageBox.Show("Ingresa un código numérico válido.");
+                    return;
+                }
+                try
+                {
+                    using (SqlConnection conexion = ConexionBD.Conectar())
+                    {
+                        conexion.Open();
+
+                        string sqledit = "UPDATE REPORTES SET nombre_de_reporte = @nombreedit, detalle_de_reporte = @detalledit where COD_reporte = @codigoedit;";
+
+                        using (SqlCommand cmd = new SqlCommand(sqledit, conexion))
+                        {
+                            cmd.Parameters.Add("@codigoedit", SqlDbType.VarChar, 30).Value = codigoedit;
+                            cmd.Parameters.Add("@nombreedit", SqlDbType.VarChar, 200).Value = nombreedit;
+                            cmd.Parameters.Add("@detalledit", SqlDbType.VarChar, 30).Value = detalledit;
+                            int filasAfectadas = cmd.ExecuteNonQuery();
+
+                            if (filasAfectadas > 0)
+                            {
+                                MessageBox.Show("Reporte actualizado correctamente.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró ningún reporte con ese código.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al editar reportes: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("SOLO EL ADMINISTRADOR PUEDE EDITAR REPORTES");
+                CODIGO_DE_EDIT.Clear();
+                NOMBRE_DE_EDIT.Clear();
+                DETALLE_DE_EDIT.Clear();
+            }
+        }
+
+        private void BUSCAR_POR_Click(object sender, EventArgs e)
+        {
+            CODIGO_DE_EDIT.Visible = false;
+            NOMBRE_DE_EDIT.Visible = false;
+            DETALLE_DE_EDIT.Visible = false;
+            label4.Visible = true;
+            TIPO_DE_BUSQUEDA.Visible = true;
+            DATO_DE_BUSQ.Visible = true;
+            BUSCAR.Visible = true;
+            edit1.Visible = false;
+            edit2.Visible = false;
+            edit3.Visible = false;
+            actalisarReporte.Visible = false;
+        }
     }
 }
 
