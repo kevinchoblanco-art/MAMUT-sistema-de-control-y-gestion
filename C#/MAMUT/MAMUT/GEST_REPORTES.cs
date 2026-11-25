@@ -325,6 +325,11 @@ namespace MAMUT
             DATO_DE_BUSQ.Clear();
             DATO_DE_BUSQ.Focus();
         }
+
+        private void REPORTAR_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
