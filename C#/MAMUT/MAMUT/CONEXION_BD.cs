@@ -30,7 +30,8 @@ namespace SistemaLogin
         public static string apellido_paterno { get; set; }
         public static string apellido_materno { get; set; }
         public static string cargo { get; set; }
-
+        public static int ultimoreporte { get; set; }
+        public static string fecha { get; set; }
     }
 
 }

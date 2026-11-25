@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.MOST_REPORT = new System.Windows.Forms.DataGridView();
-            this.REPORTAR = new System.Windows.Forms.Button();
+            this.REPORTAR1 = new System.Windows.Forms.Button();
             this.EDITAR = new System.Windows.Forms.Button();
             this.BORRAR = new System.Windows.Forms.Button();
             this.ORDENAR_REPO = new System.Windows.Forms.ComboBox();
@@ -81,14 +81,15 @@
             this.MOST_REPORT.Size = new System.Drawing.Size(987, 357);
             this.MOST_REPORT.TabIndex = 1;
             // 
-            // REPORTAR
+            // REPORTAR1
             // 
-            this.REPORTAR.Location = new System.Drawing.Point(55, 87);
-            this.REPORTAR.Name = "REPORTAR";
-            this.REPORTAR.Size = new System.Drawing.Size(180, 26);
-            this.REPORTAR.TabIndex = 2;
-            this.REPORTAR.Text = "REPORTAR";
-            this.REPORTAR.UseVisualStyleBackColor = true;
+            this.REPORTAR1.Location = new System.Drawing.Point(55, 87);
+            this.REPORTAR1.Name = "REPORTAR1";
+            this.REPORTAR1.Size = new System.Drawing.Size(180, 26);
+            this.REPORTAR1.TabIndex = 2;
+            this.REPORTAR1.Text = "REPORTAR";
+            this.REPORTAR1.UseVisualStyleBackColor = true;
+            this.REPORTAR1.Click += new System.EventHandler(this.REPORTAR1_Click);
             // 
             // EDITAR
             // 
@@ -361,7 +362,7 @@
             this.Controls.Add(this.ORDENAR_REPO);
             this.Controls.Add(this.BORRAR);
             this.Controls.Add(this.EDITAR);
-            this.Controls.Add(this.REPORTAR);
+            this.Controls.Add(this.REPORTAR1);
             this.Controls.Add(this.MOST_REPORT);
             this.Controls.Add(this.label1);
             this.Name = "GEST_REPORTES";
@@ -376,7 +377,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView MOST_REPORT;
-        private System.Windows.Forms.Button REPORTAR;
+        private System.Windows.Forms.Button REPORTAR1;
         private System.Windows.Forms.Button EDITAR;
         private System.Windows.Forms.Button BORRAR;
         private System.Windows.Forms.ComboBox ORDENAR_REPO;

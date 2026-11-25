@@ -44,10 +44,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(280, 41);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(210, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 16);
+            this.label1.Size = new System.Drawing.Size(123, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "SISTEMA DE GESTION";
             // 
@@ -55,56 +54,50 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(297, 74);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(223, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 36);
+            this.label2.Size = new System.Drawing.Size(101, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "MAMUT";
             // 
             // textUSUARIO
             // 
-            this.textUSUARIO.Location = new System.Drawing.Point(205, 192);
-            this.textUSUARIO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUSUARIO.Location = new System.Drawing.Point(154, 156);
             this.textUSUARIO.Name = "textUSUARIO";
-            this.textUSUARIO.Size = new System.Drawing.Size(353, 22);
+            this.textUSUARIO.Size = new System.Drawing.Size(266, 20);
             this.textUSUARIO.TabIndex = 2;
             this.textUSUARIO.Text = "a";
             // 
             // textCLAVE
             // 
-            this.textCLAVE.Location = new System.Drawing.Point(205, 245);
-            this.textCLAVE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textCLAVE.Location = new System.Drawing.Point(154, 199);
             this.textCLAVE.Name = "textCLAVE";
-            this.textCLAVE.Size = new System.Drawing.Size(353, 22);
+            this.textCLAVE.Size = new System.Drawing.Size(266, 20);
             this.textCLAVE.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 196);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(77, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 16);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "USUARIO";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(69, 249);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(52, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 16);
+            this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "CONTRASEÑA";
             // 
             // INGRESAR
             // 
-            this.INGRESAR.Location = new System.Drawing.Point(453, 348);
-            this.INGRESAR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.INGRESAR.Location = new System.Drawing.Point(340, 283);
             this.INGRESAR.Name = "INGRESAR";
-            this.INGRESAR.Size = new System.Drawing.Size(156, 59);
+            this.INGRESAR.Size = new System.Drawing.Size(117, 48);
             this.INGRESAR.TabIndex = 6;
             this.INGRESAR.Text = "INGRESAR";
             this.INGRESAR.UseVisualStyleBackColor = true;
@@ -112,10 +105,9 @@
             // 
             // SALIR
             // 
-            this.SALIR.Location = new System.Drawing.Point(163, 348);
-            this.SALIR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SALIR.Location = new System.Drawing.Point(122, 283);
             this.SALIR.Name = "SALIR";
-            this.SALIR.Size = new System.Drawing.Size(156, 59);
+            this.SALIR.Size = new System.Drawing.Size(117, 48);
             this.SALIR.TabIndex = 7;
             this.SALIR.Text = "SALIR";
             this.SALIR.UseVisualStyleBackColor = true;
@@ -124,20 +116,18 @@
             // checkCLAVE
             // 
             this.checkCLAVE.AutoSize = true;
-            this.checkCLAVE.Location = new System.Drawing.Point(591, 249);
-            this.checkCLAVE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkCLAVE.Location = new System.Drawing.Point(443, 202);
             this.checkCLAVE.Name = "checkCLAVE";
-            this.checkCLAVE.Size = new System.Drawing.Size(18, 17);
+            this.checkCLAVE.Size = new System.Drawing.Size(15, 14);
             this.checkCLAVE.TabIndex = 8;
             this.checkCLAVE.UseVisualStyleBackColor = true;
             this.checkCLAVE.CheckedChanged += new System.EventHandler(this.checkCLAVE_CheckedChanged_1);
             // 
             // LIMPIAR
             // 
-            this.LIMPIAR.Location = new System.Drawing.Point(591, 192);
-            this.LIMPIAR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LIMPIAR.Location = new System.Drawing.Point(443, 156);
             this.LIMPIAR.Name = "LIMPIAR";
-            this.LIMPIAR.Size = new System.Drawing.Size(188, 25);
+            this.LIMPIAR.Size = new System.Drawing.Size(141, 20);
             this.LIMPIAR.TabIndex = 9;
             this.LIMPIAR.Text = "LIMPIAR";
             this.LIMPIAR.UseVisualStyleBackColor = true;
@@ -145,18 +135,17 @@
             // MOST_OCULT
             // 
             this.MOST_OCULT.AutoSize = true;
-            this.MOST_OCULT.Location = new System.Drawing.Point(619, 249);
-            this.MOST_OCULT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MOST_OCULT.Location = new System.Drawing.Point(464, 202);
             this.MOST_OCULT.Name = "MOST_OCULT";
-            this.MOST_OCULT.Size = new System.Drawing.Size(172, 16);
+            this.MOST_OCULT.Size = new System.Drawing.Size(138, 13);
             this.MOST_OCULT.TabIndex = 11;
             this.MOST_OCULT.Text = "MOSTRAR CONTRASEÑA";
             // 
             // LOGIN
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 447);
+            this.ClientSize = new System.Drawing.Size(624, 363);
             this.Controls.Add(this.MOST_OCULT);
             this.Controls.Add(this.LIMPIAR);
             this.Controls.Add(this.checkCLAVE);
@@ -168,9 +157,9 @@
             this.Controls.Add(this.textUSUARIO);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LOGIN";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.LOGIN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

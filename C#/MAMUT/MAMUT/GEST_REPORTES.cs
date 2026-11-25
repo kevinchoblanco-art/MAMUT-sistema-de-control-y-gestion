@@ -594,6 +594,12 @@ namespace MAMUT
             DATO_DE_BUSQ.Visible = false;
             BUSCAR.Visible = false;
         }
+
+        private void REPORTAR1_Click(object sender, EventArgs e)
+        {
+            REPORTAR report = new REPORTAR();
+            report.ShowDialog();
+        }
     }
 }
 

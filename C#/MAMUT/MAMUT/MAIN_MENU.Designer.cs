@@ -40,10 +40,7 @@
             this.gESTIONDEPERSONALToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gESTIONDEMOVIMIENTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gESTIONDEREPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTARLOTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTARMATERIALToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTARPROVEEDORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gESTIONDEPROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aCERCADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOMOAGREGARNUEVOUSUSARIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +65,7 @@
             this.IDuser = new System.Windows.Forms.Label();
             this.apellidoM = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.gESTIONDEPROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.REPORT = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -99,11 +96,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iNICIOToolStripMenuItem,
             this.mANTENIMIENTOToolStripMenuItem,
-            this.rEPORTESToolStripMenuItem,
             this.aYUDAToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(429, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(237, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -167,33 +163,12 @@
             this.gESTIONDEREPORTESToolStripMenuItem.Text = "GESTION DE REPORTES";
             this.gESTIONDEREPORTESToolStripMenuItem.Click += new System.EventHandler(this.gESTIONDEREPORTESToolStripMenuItem_Click);
             // 
-            // rEPORTESToolStripMenuItem
+            // gESTIONDEPROVEEDORESToolStripMenuItem
             // 
-            this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rEPORTARLOTEToolStripMenuItem,
-            this.rEPORTARMATERIALToolStripMenuItem,
-            this.rEPORTARPROVEEDORToolStripMenuItem});
-            this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
-            this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.rEPORTESToolStripMenuItem.Text = "REPORTES";
-            // 
-            // rEPORTARLOTEToolStripMenuItem
-            // 
-            this.rEPORTARLOTEToolStripMenuItem.Name = "rEPORTARLOTEToolStripMenuItem";
-            this.rEPORTARLOTEToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.rEPORTARLOTEToolStripMenuItem.Text = "REPORTAR LOTE";
-            // 
-            // rEPORTARMATERIALToolStripMenuItem
-            // 
-            this.rEPORTARMATERIALToolStripMenuItem.Name = "rEPORTARMATERIALToolStripMenuItem";
-            this.rEPORTARMATERIALToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.rEPORTARMATERIALToolStripMenuItem.Text = "REPORTAR MATERIAL";
-            // 
-            // rEPORTARPROVEEDORToolStripMenuItem
-            // 
-            this.rEPORTARPROVEEDORToolStripMenuItem.Name = "rEPORTARPROVEEDORToolStripMenuItem";
-            this.rEPORTARPROVEEDORToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.rEPORTARPROVEEDORToolStripMenuItem.Text = "REPORTAR PROVEEDOR";
+            this.gESTIONDEPROVEEDORESToolStripMenuItem.Name = "gESTIONDEPROVEEDORESToolStripMenuItem";
+            this.gESTIONDEPROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.gESTIONDEPROVEEDORESToolStripMenuItem.Text = "GESTION DE PROVEEDORES";
+            this.gESTIONDEPROVEEDORESToolStripMenuItem.Click += new System.EventHandler(this.gESTIONDEPROVEEDORESToolStripMenuItem_Click);
             // 
             // aYUDAToolStripMenuItem
             // 
@@ -405,12 +380,15 @@
             this.label8.TabIndex = 21;
             this.label8.Text = "APELLIDO MATERNO";
             // 
-            // gESTIONDEPROVEEDORESToolStripMenuItem
+            // REPORT
             // 
-            this.gESTIONDEPROVEEDORESToolStripMenuItem.Name = "gESTIONDEPROVEEDORESToolStripMenuItem";
-            this.gESTIONDEPROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.gESTIONDEPROVEEDORESToolStripMenuItem.Text = "GESTION DE PROVEEDORES";
-            this.gESTIONDEPROVEEDORESToolStripMenuItem.Click += new System.EventHandler(this.gESTIONDEPROVEEDORESToolStripMenuItem_Click);
+            this.REPORT.Location = new System.Drawing.Point(484, 466);
+            this.REPORT.Name = "REPORT";
+            this.REPORT.Size = new System.Drawing.Size(420, 41);
+            this.REPORT.TabIndex = 23;
+            this.REPORT.Text = "REPORTAR";
+            this.REPORT.UseVisualStyleBackColor = true;
+            this.REPORT.Click += new System.EventHandler(this.REPORT_Click);
             // 
             // MAIN_MENU
             // 
@@ -419,6 +397,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(988, 552);
+            this.Controls.Add(this.REPORT);
             this.Controls.Add(this.apellidoM);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.ID);
@@ -487,11 +466,8 @@
         private System.Windows.Forms.ToolStripMenuItem gESTIONDEPERSONALToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gESTIONDEMOVIMIENTOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gESTIONDEREPORTESToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rEPORTESToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rEPORTARLOTEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rEPORTARMATERIALToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rEPORTARPROVEEDORToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEPORTARERRORDELSISTEMAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gESTIONDEPROVEEDORESToolStripMenuItem;
+        private System.Windows.Forms.Button REPORT;
     }
 }

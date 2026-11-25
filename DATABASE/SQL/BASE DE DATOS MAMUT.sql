@@ -54,11 +54,13 @@ foreign key(IdLote) references LOTE_DE_CAUCHO(IdLote), foreign key(IdPersonal) r
 ); 
 create table REPORTES(
 COD_reporte int identity (1,1) primary key,
-usuario varchar (30),
+IdPersonal int, --
+usuario varchar (30),--
 Tipo_de_reporte varchar(30) not null,
 nombre_de_reporte varchar(100) not null,
 detalle_de_reporte varchar(500)not null,
 Fecha date not null,
+CONSTRAINT FK_REPORTES_PERSONAL FOREIGN KEY (IdPersonal) REFERENCES PERSONAL(IdPersonal)
 );
 
 
@@ -116,19 +118,19 @@ insert into MOVIMIENTO values
 ('MO5', 'L5', 2, 90.00, '2026-11-19 10:10:00', 'Traslado'); 
 
 INSERT INTO REPORTES VALUES
-('admin', 'REPORTE DE ERROR DE SISTEMA', 'error al cerrar sesion', 'al cerrar sesion el sistema cierra el programa', '2026-11-11'),
-('admin', 'REPORTE DE ERROR DE SISTEMA', 'Error al cerrar sesion', 'Al cerrar sesion el sistema cierra el programa de forma inesperada.', '2026-11-11'),
-('admin', 'REPORTE DE ERROR DE SISTEMA', 'Fallo de conexion a BD', 'Se perdio la conexion con SQL Server al intentar guardar los cambios.', '2026-11-12'),
-('jperez', 'REPORTE DE ERROR DE SISTEMA', 'Tiempo de espera agotado', 'La consulta de inventario tardo demasiado y arrojo un error de tiempo de espera agotado.', '2026-11-13'),
-('mlopez', 'REPORTE DE MATERIAL', 'Stock bajo de materia prima', 'El material seleccionado esta por debajo del stock minimo permitido en almacen.', '2026-11-12'),
-('jperez', 'REPORTE DE MATERIAL', 'Diferencia en conteo fisico', 'Se detecto una diferencia entre el stock del sistema y el conteo fisico realizado.', '2026-11-14'),
-('mlopez', 'REPORTE DE MATERIAL', 'Material proximo a vencer', 'Existen unidades de material que requieren revision por proximidad a fecha de vencimiento.', '2026-11-15'),
-('rgarcia', 'REPORTE DE LOTE', 'Observacion en lote de caucho', 'El lote de caucho registro variacion en la inspeccion de calidad inicial.', '2026-11-13'),
-('rgarcia', 'REPORTE DE LOTE', 'Lote retenido en almacen', 'El lote quedo retenido temporalmente hasta confirmar resultados de control de calidad.', '2026-11-16'),
-('jperez', 'REPORTE DE LOTE', 'Cierre de produccion de lote', 'Se completo el registro y cierre del lote en el sistema sin incidencias.', '2026-11-17'),
-('cmendoza', 'REPORTE DE PROVEEDOR', 'Retraso en entrega de pedido', 'El proveedor entrego el pedido fuera de la fecha acordada en la orden de compra.', '2026-11-14'),
-('cmendoza', 'REPORTE DE PROVEEDOR', 'Incidencia en factura o guia', 'La guia de remision no coincide con las cantidades facturadas por el proveedor.', '2026-11-16'),
-('admin', 'REPORTE DE PROVEEDOR', 'Actualizacion de datos de proveedor', 'Se actualizaron datos de contacto y condiciones comerciales del proveedor.', '2026-11-18');
+(1,'admin', 'REPORTE DE ERROR DE SISTEMA', 'error al cerrar sesion', 'al cerrar sesion el sistema cierra el programa', '2026-11-11'),
+(1,'admin', 'REPORTE DE ERROR DE SISTEMA', 'Error al cerrar sesion', 'Al cerrar sesion el sistema cierra el programa de forma inesperada.', '2026-11-11'),
+(1,'admin', 'REPORTE DE ERROR DE SISTEMA', 'Fallo de conexion a BD', 'Se perdio la conexion con SQL Server al intentar guardar los cambios.', '2026-11-12'),
+(2,'jperez', 'REPORTE DE ERROR DE SISTEMA', 'Tiempo de espera agotado', 'La consulta de inventario tardo demasiado y arrojo un error de tiempo de espera agotado.', '2026-11-13'),
+(3,'mlopez', 'REPORTE DE MATERIAL', 'Stock bajo de materia prima', 'El material seleccionado esta por debajo del stock minimo permitido en almacen.', '2026-11-12'),
+(1,'jperez', 'REPORTE DE MATERIAL', 'Diferencia en conteo fisico', 'Se detecto una diferencia entre el stock del sistema y el conteo fisico realizado.', '2026-11-14'),
+(2,'mlopez', 'REPORTE DE MATERIAL', 'Material proximo a vencer', 'Existen unidades de material que requieren revision por proximidad a fecha de vencimiento.', '2026-11-15'),
+(5,'rgarcia', 'REPORTE DE LOTE', 'Observacion en lote de caucho', 'El lote de caucho registro variacion en la inspeccion de calidad inicial.', '2026-11-13'),
+(5,'rgarcia', 'REPORTE DE LOTE', 'Lote retenido en almacen', 'El lote quedo retenido temporalmente hasta confirmar resultados de control de calidad.', '2026-11-16'),
+(2,'jperez', 'REPORTE DE LOTE', 'Cierre de produccion de lote', 'Se completo el registro y cierre del lote en el sistema sin incidencias.', '2026-11-17'),
+(2,'cmendoza', 'REPORTE DE PROVEEDOR', 'Retraso en entrega de pedido', 'El proveedor entrego el pedido fuera de la fecha acordada en la orden de compra.', '2026-11-14'),
+(1,'cmendoza', 'REPORTE DE PROVEEDOR', 'Incidencia en factura o guia', 'La guia de remision no coincide con las cantidades facturadas por el proveedor.', '2026-11-16'),
+(1,'admin', 'REPORTE DE PROVEEDOR', 'Actualizacion de datos de proveedor', 'Se actualizaron datos de contacto y condiciones comerciales del proveedor.', '2026-11-18');
  
 select * from PROVEEDOR
 select * from ALMACEN
@@ -150,9 +152,7 @@ select * from REPORTES where Tipo_de_reporte = 'REPORTE DE LOTE'
 SELECT * FROM REPORTES ORDER BY COD_reporte desc
 
 
-
-
-
-
- drop database MAMUT
- DROP TABLE PERSONAL
+DROP TABLE REPORTES
+use master
+drop database MAMUT
+ 
