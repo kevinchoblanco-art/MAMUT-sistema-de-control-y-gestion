@@ -49,13 +49,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textbusqueda = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ACTUALIZAR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGBMATERIAL)).BeginInit();
             this.SuspendLayout();
             // 
             // DGBMATERIAL
             // 
             this.DGBMATERIAL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGBMATERIAL.Location = new System.Drawing.Point(230, 170);
+            this.DGBMATERIAL.Location = new System.Drawing.Point(221, 167);
             this.DGBMATERIAL.Name = "DGBMATERIAL";
             this.DGBMATERIAL.Size = new System.Drawing.Size(603, 318);
             this.DGBMATERIAL.TabIndex = 0;
@@ -73,9 +75,9 @@
             // 
             // GUARDAR
             // 
-            this.GUARDAR.Location = new System.Drawing.Point(12, 327);
+            this.GUARDAR.Location = new System.Drawing.Point(12, 359);
             this.GUARDAR.Name = "GUARDAR";
-            this.GUARDAR.Size = new System.Drawing.Size(96, 23);
+            this.GUARDAR.Size = new System.Drawing.Size(199, 23);
             this.GUARDAR.TabIndex = 2;
             this.GUARDAR.Text = "GUARDAR";
             this.GUARDAR.UseVisualStyleBackColor = true;
@@ -83,9 +85,9 @@
             // 
             // LIMPIAR
             // 
-            this.LIMPIAR.Location = new System.Drawing.Point(65, 374);
+            this.LIMPIAR.Location = new System.Drawing.Point(12, 462);
             this.LIMPIAR.Name = "LIMPIAR";
-            this.LIMPIAR.Size = new System.Drawing.Size(96, 23);
+            this.LIMPIAR.Size = new System.Drawing.Size(199, 23);
             this.LIMPIAR.TabIndex = 3;
             this.LIMPIAR.Text = "LIMPIAR";
             this.LIMPIAR.UseVisualStyleBackColor = true;
@@ -93,9 +95,9 @@
             // 
             // ELIMINAR
             // 
-            this.ELIMINAR.Location = new System.Drawing.Point(119, 327);
+            this.ELIMINAR.Location = new System.Drawing.Point(12, 388);
             this.ELIMINAR.Name = "ELIMINAR";
-            this.ELIMINAR.Size = new System.Drawing.Size(96, 23);
+            this.ELIMINAR.Size = new System.Drawing.Size(199, 23);
             this.ELIMINAR.TabIndex = 4;
             this.ELIMINAR.Text = "ELIMINAR";
             this.ELIMINAR.UseVisualStyleBackColor = true;
@@ -105,14 +107,14 @@
             // 
             this.textIDPROVEEDOR.Location = new System.Drawing.Point(30, 59);
             this.textIDPROVEEDOR.Name = "textIDPROVEEDOR";
-            this.textIDPROVEEDOR.Size = new System.Drawing.Size(141, 20);
+            this.textIDPROVEEDOR.Size = new System.Drawing.Size(152, 20);
             this.textIDPROVEEDOR.TabIndex = 5;
             // 
             // textIDPERSONAL
             // 
-            this.textIDPERSONAL.Location = new System.Drawing.Point(30, 99);
+            this.textIDPERSONAL.Location = new System.Drawing.Point(33, 97);
             this.textIDPERSONAL.Name = "textIDPERSONAL";
-            this.textIDPERSONAL.Size = new System.Drawing.Size(141, 20);
+            this.textIDPERSONAL.Size = new System.Drawing.Size(149, 20);
             this.textIDPERSONAL.TabIndex = 6;
             // 
             // comboTIPO_MATERIAL
@@ -125,15 +127,15 @@
             "Neumatico mediano"});
             this.comboTIPO_MATERIAL.Location = new System.Drawing.Point(30, 178);
             this.comboTIPO_MATERIAL.Name = "comboTIPO_MATERIAL";
-            this.comboTIPO_MATERIAL.Size = new System.Drawing.Size(141, 21);
+            this.comboTIPO_MATERIAL.Size = new System.Drawing.Size(152, 21);
             this.comboTIPO_MATERIAL.TabIndex = 8;
             this.comboTIPO_MATERIAL.SelectedIndexChanged += new System.EventHandler(this.comboTIPO_MATERIAL_SelectedIndexChanged);
             // 
             // FECHA_RECEP
             // 
-            this.FECHA_RECEP.Location = new System.Drawing.Point(12, 288);
+            this.FECHA_RECEP.Location = new System.Drawing.Point(30, 321);
             this.FECHA_RECEP.Name = "FECHA_RECEP";
-            this.FECHA_RECEP.Size = new System.Drawing.Size(203, 20);
+            this.FECHA_RECEP.Size = new System.Drawing.Size(141, 20);
             this.FECHA_RECEP.TabIndex = 9;
             this.FECHA_RECEP.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -141,31 +143,33 @@
             // 
             this.textCANTIDADKG.Location = new System.Drawing.Point(30, 139);
             this.textCANTIDADKG.Name = "textCANTIDADKG";
-            this.textCANTIDADKG.Size = new System.Drawing.Size(141, 20);
+            this.textCANTIDADKG.Size = new System.Drawing.Size(152, 20);
             this.textCANTIDADKG.TabIndex = 7;
             // 
             // rbdisponible
             // 
             this.rbdisponible.AutoSize = true;
+            this.rbdisponible.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.rbdisponible.Checked = true;
-            this.rbdisponible.Location = new System.Drawing.Point(32, 232);
+            this.rbdisponible.Location = new System.Drawing.Point(45, 232);
             this.rbdisponible.Name = "rbdisponible";
             this.rbdisponible.Size = new System.Drawing.Size(89, 17);
             this.rbdisponible.TabIndex = 10;
             this.rbdisponible.TabStop = true;
             this.rbdisponible.Text = "DISPONIBLE";
-            this.rbdisponible.UseVisualStyleBackColor = true;
+            this.rbdisponible.UseVisualStyleBackColor = false;
             this.rbdisponible.CheckedChanged += new System.EventHandler(this.rbdisponible_CheckedChanged);
             // 
             // rbenprocesso
             // 
             this.rbenprocesso.AutoSize = true;
-            this.rbenprocesso.Location = new System.Drawing.Point(32, 255);
+            this.rbenprocesso.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.rbenprocesso.Location = new System.Drawing.Point(45, 255);
             this.rbenprocesso.Name = "rbenprocesso";
             this.rbenprocesso.Size = new System.Drawing.Size(102, 17);
             this.rbenprocesso.TabIndex = 11;
             this.rbenprocesso.Text = "EN PROCESSO";
-            this.rbenprocesso.UseVisualStyleBackColor = true;
+            this.rbenprocesso.UseVisualStyleBackColor = false;
             this.rbenprocesso.CheckedChanged += new System.EventHandler(this.rbenproceso_CheckedChanged);
             // 
             // label2
@@ -210,7 +214,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(62, 209);
+            this.label5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label5.Location = new System.Drawing.Point(71, 216);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 16;
@@ -257,11 +262,32 @@
             this.textbusqueda.Size = new System.Drawing.Size(244, 20);
             this.textbusqueda.TabIndex = 20;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 294);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(202, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "INSERTAR FECHA DE RECEBIMIENTO";
+            // 
+            // ACTUALIZAR
+            // 
+            this.ACTUALIZAR.Location = new System.Drawing.Point(12, 417);
+            this.ACTUALIZAR.Name = "ACTUALIZAR";
+            this.ACTUALIZAR.Size = new System.Drawing.Size(199, 27);
+            this.ACTUALIZAR.TabIndex = 22;
+            this.ACTUALIZAR.Text = "ACTUALIZAR";
+            this.ACTUALIZAR.UseVisualStyleBackColor = true;
+            this.ACTUALIZAR.Click += new System.EventHandler(this.btnactualizar_Click);
+            // 
             // MATERIAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 497);
+            this.Controls.Add(this.ACTUALIZAR);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textbusqueda);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
@@ -315,5 +341,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textbusqueda;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button ACTUALIZAR;
     }
 }
