@@ -71,6 +71,7 @@ namespace MAMUT
                         {
                             if (reader.Read())
                             {
+                                string fecha = DateTime.Today.ToString("yyyy-MM-dd");
                                 cantidad = 1; // Se encontró el registro
                                 contadores.id = reader["IdPersonal"].ToString();
                                 contadores.nombre = reader["Nombre"].ToString();
@@ -78,6 +79,7 @@ namespace MAMUT
                                 contadores.apellido_materno = reader["Apellido_Materno"].ToString();
                                 contadores.cargo = reader["Cargo"].ToString();
                                 contadores.usuario = usuario;
+                                contadores.fecha = fecha;
                             }
                         }
                         if (cantidad > 0)
@@ -117,6 +119,11 @@ namespace MAMUT
             {
                 MOST_OCULT.Text = "OCULTAR CONTRASEÑA";
             }
+        }
+
+        private void LOGIN_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

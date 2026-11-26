@@ -10,7 +10,7 @@ namespace SistemaLogin
     public class ConexionBD
     {
         private static string cadena =
-            @"Server=DESKTOP-BNE5NMK\SQLEXPRESS;
+            @"Server=AFK®25;
             Database=MAMUT;
             Integrated Security=True;
             TrustServerCertificate=True;";
@@ -22,6 +22,7 @@ namespace SistemaLogin
     }
     public static class contadores
     {
+        public static bool admin_activo { get; set; }
         public static bool sesion_abierta  { get; set; }
         public static string id { get; set; }
         public static string usuario { get; set; }
@@ -29,7 +30,8 @@ namespace SistemaLogin
         public static string apellido_paterno { get; set; }
         public static string apellido_materno { get; set; }
         public static string cargo { get; set; }
-
+        public static int ultimoreporte { get; set; }
+        public static string fecha { get; set; }
     }
 
 }
