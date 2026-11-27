@@ -59,9 +59,10 @@
             this.DGBMATERIAL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGBMATERIAL.Location = new System.Drawing.Point(221, 167);
             this.DGBMATERIAL.Name = "DGBMATERIAL";
+            this.DGBMATERIAL.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGBMATERIAL.Size = new System.Drawing.Size(603, 318);
             this.DGBMATERIAL.TabIndex = 0;
-            this.DGBMATERIAL.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGBMATERIALES_CellContentClick);
+            this.DGBMATERIAL.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGBMATERIALES_Cell_Click);
             // 
             // label1
             // 

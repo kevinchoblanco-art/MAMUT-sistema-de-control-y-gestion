@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,11 +15,13 @@ using System.Windows.Forms;
 namespace MAMUT
 {
     public partial class MATERIAL : Form
-    {   
+    {
+        private int idSeleccionado;
         public MATERIAL()
         {
             InitializeComponent();
         }
+       
         private void ListarMateriales()
         {
             try
@@ -43,6 +46,7 @@ namespace MAMUT
         }
         private void MATERIAL_Load(object sender, EventArgs e)
         {
+            
             ListarMateriales();
         }
         private void label1_Click(object sender, EventArgs e)
@@ -113,7 +117,8 @@ namespace MAMUT
                 using (SqlConnection conexion = ConexionBD.Conectar())
                 {
                     conexion.Open();
-                    string sql = "INSERT INTO MATERIAL (IdProveedor, IdPersonal, TipoMaterial, Estado, CantidadKg, FechaRecep)"+
+                    string sql = "INSERT INTO MATERIAL " +
+                        "(IdProveedor, IdPersonal, TipoMaterial, Estado, CantidadKg, FechaRecep)"+
                         " VALUES (@idProv, @idPers, @tipo, @estado, @cant, @fecha)";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexion))
@@ -194,27 +199,8 @@ namespace MAMUT
 
         }
         int selectedRowIndex = -1;
-        private void DGBMATERIALES_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            selectedRowIndex = e.RowIndex;
-
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow columna = DGBMATERIAL.Rows[e.RowIndex];
-
-                textIDPROVEEDOR.Text = columna.Cells["IdProveedor"].Value.ToString();
-                textIDPERSONAL.Text = columna.Cells["IdPersonal"].Value.ToString();
-                comboTIPO_MATERIAL.Text = columna.Cells["TipoMaterial"].Value.ToString();
-                textCANTIDADKG.Text = columna.Cells["CantidadKg"].Value.ToString();
-                FECHA_RECEP.Value = Convert.ToDateTime(columna.Cells["FechaRecep"].Value);
-
-                string estado = columna.Cells["Estado"].Value.ToString();
-                rbdisponible.Checked = (estado == "Disponible");
-                rbenprocesso.Checked = (estado == "En proceso");
-                
-            }
-        }
-        
+       
+     
 
         private void comboTIPO_MATERIAL_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -233,52 +219,71 @@ namespace MAMUT
 
         private void btnactualizar_Click(object sender, EventArgs e)
         {
-            if (DGBMATERIAL.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione un material de la tabla para actualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             try
             {
-                int idMaterial = Convert.ToInt32(DGBMATERIAL.SelectedRows[0].Cells["IdMaterial"].Value);
-
-                using (SqlConnection conexion = ConexionBD.Conectar())
+                if (DGBMATERIAL.SelectedRows.Count > 0)
                 {
-                    conexion.Open();
-                    string sql = @"UPDATE MATERIAL 
-                           SET IdProveedor = @idProv, 
-                               IdPersonal = @idPers, 
-                               TipoMaterial = @tipo, 
-                               Estado = @estado, 
-                               CantidadKg = @cant, 
-                               FechaRecep = @fecha 
-                           WHERE IdMaterial = @id";
-
-                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
+                    int idSeleccionado = Convert.ToInt32(
+                        DGBMATERIAL.SelectedRows[0].Cells["IdMaterial"].Value);
+                    using (SqlConnection conexion = ConexionBD.Conectar())
                     {
-                        cmd.Parameters.AddWithValue("@idProv", int.Parse(textIDPROVEEDOR.Text));
-                        cmd.Parameters.AddWithValue("@idPers", int.Parse(textIDPERSONAL.Text));
-                        cmd.Parameters.AddWithValue("@tipo", comboTIPO_MATERIAL.Text);
-                        cmd.Parameters.AddWithValue("@estado", rbdisponible.Checked ? "Disponible" : "En proceso");
-                        cmd.Parameters.AddWithValue("@cant", decimal.Parse(textCANTIDADKG.Text));
-                        cmd.Parameters.AddWithValue("@fecha", FECHA_RECEP.Value);
-                        cmd.Parameters.AddWithValue("@id", idMaterial);
-
-                        int filas = cmd.ExecuteNonQuery();
-
-                        if (filas > 0)
+                        conexion.Open();
+                        string sql = "UPDATE MATERIAL SET " +
+                            "IdProveedor = @idProv, " +
+                            "IdPersonal = @idPers, " +
+                            "TipoMaterial = @tipo, " +
+                            "Estado = @estado, " +
+                            "CantidadKg = @cant, " +
+                            "FechaRecep = @fecha " +
+                            "WHERE IdMaterial = @id";
+                        using (SqlCommand cmd = new SqlCommand(sql, conexion))
                         {
-                            MessageBox.Show("Material actualizado con éxito.");
-                            ListarMateriales();
-                            LIMPIAR_Click(sender, e);
+                            cmd.Parameters.AddWithValue("@idProv", int.Parse(textIDPROVEEDOR.Text));
+                            cmd.Parameters.AddWithValue("@idPers", int.Parse(textIDPERSONAL.Text));
+                            cmd.Parameters.AddWithValue("@tipo", comboTIPO_MATERIAL.Text);
+                            cmd.Parameters.AddWithValue("@estado", rbdisponible.Checked ? "Disponible" : "En proceso");
+                            cmd.Parameters.AddWithValue("@cant", decimal.Parse(textCANTIDADKG.Text));
+                            cmd.Parameters.AddWithValue("@fecha", FECHA_RECEP.Value);
+                            cmd.Parameters.AddWithValue("@id", idSeleccionado);
+                            cmd.ExecuteNonQuery();
                         }
                     }
+                    MessageBox.Show("Material actualizado con éxito.");
+                    ListarMateriales();
+                    LIMPIAR_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una fila completa de la tabla para actualizar.");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar: " + ex.Message);
+            }
+        }
+            
+            
+
+        private void DGBMATERIALES_Cell_Click(object sender, DataGridViewCellEventArgs e)
+        {   
+            
+
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow columna = DGBMATERIAL.Rows[e.RowIndex];
+
+                textIDPROVEEDOR.Text = columna.Cells["IdProveedor"].Value.ToString();
+                textIDPERSONAL.Text = columna.Cells["IdPersonal"].Value.ToString();
+                comboTIPO_MATERIAL.Text = columna.Cells["TipoMaterial"].Value.ToString();
+                textCANTIDADKG.Text = columna.Cells["CantidadKg"].Value.ToString();
+                FECHA_RECEP.Value = Convert.ToDateTime(columna.Cells["FechaRecep"].Value);
+
+                string estado = columna.Cells["Estado"].Value.ToString();
+                rbdisponible.Checked = (estado == "Disponible");
+                rbenprocesso.Checked = (estado == "En proceso");
+
             }
         }
     }
